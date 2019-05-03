@@ -54,8 +54,11 @@ namespace VRW.Presenter
 
         private void SynchronizationTimeEvent(object sender, EventArgs e)
         {
-            SynchroTime synchroTime = new SynchroTime();
-            synchroTime.SendTime(serialPort);
+            if (serialPort.IsOpen)
+            {
+                SynchroTime synchroTime = new SynchroTime();
+                synchroTime.SendTime(serialPort); 
+            }
         }
 
         private void StopDecodingSerialPortEvent(object sender, EventArgs e)
