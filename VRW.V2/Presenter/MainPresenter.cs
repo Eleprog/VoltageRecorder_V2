@@ -60,7 +60,7 @@ namespace VRW.Presenter
 
         private void StopDecodingSerialPortEvent(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            serialPort.Close();
         }
 
         private void ComPortNamesUpdateEvent(object sender, EventArgs e)
@@ -107,7 +107,7 @@ namespace VRW.Presenter
             
             if (sp.IsOpen)
             {
-                //try
+                try
                 {
                     PPoints p = DecodStreamPSP.Decoding(Program.settings.ChartDisplay.VisiblePointsOnChart, view.ValueScrollChart);
                     if (countReceivesByte >= 96)
@@ -116,7 +116,7 @@ namespace VRW.Presenter
                         view.SyncContext.Post((obj) => view.MainChart = (PPoints)obj, p);
                     }
                 }
-               // catch (Exception)
+                catch (Exception)
                 {
 
                 }

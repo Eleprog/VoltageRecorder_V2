@@ -34,7 +34,7 @@ namespace VRW.Model
         {
             public string PortName { get; set; } = "COM3";
             public int BaudRate { get; set; } = 250000;
-            public Parity ParityBit { get; set; } = Parity.None;
+            public Parity ParityBit { get; set; } = Parity.Odd;
             public int DataBits { get; set; } = 8;
             public StopBits StopBit { get; set; } = StopBits.One;
         }

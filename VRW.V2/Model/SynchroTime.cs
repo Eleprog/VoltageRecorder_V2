@@ -23,7 +23,7 @@ namespace VRW.Model
         private void WriteTimeInPackage()
         {           
             package.Item[0].Value = (uint)(DateTimeOffset.UtcNow.AddHours(3).ToUnixTimeSeconds());
-            Debug.Print(package.Item[0].Value.ToString());
+           //Debug.Print(package.Item[0].Value.ToString());
         }
     }
 }

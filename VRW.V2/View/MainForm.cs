@@ -8,6 +8,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -137,7 +138,7 @@ namespace VRW.View
 
             for (int i = 0; i < chart1.Series.Count / 2; i++)
             {
-                chart1.Series[i].ChartArea = chart1.ChartAreas[0].Name;
+                chart1.Series[i].ChartArea = chart1.ChartAreas[0].Name; 
                 chart1.Series[i].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
                 chart1.Series[i].XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
             }
@@ -158,6 +159,8 @@ namespace VRW.View
             {
                 checkedListBox1.Items.Add("Канал " + i, true);
             }
+
+            Text = "Регистратор напряжений  -  Version " + Application.ProductVersion;
         }
 
         private void hScrollBar1_Scroll(object sender, ScrollEventArgs e)
