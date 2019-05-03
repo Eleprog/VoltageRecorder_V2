@@ -75,6 +75,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\SynchroTime.cs" />
     <Compile Include="View\ISettingsForm.cs" />
     <Compile Include="View\MainForm.cs">
       <SubType>Form</SubType>

@@ -78,7 +78,7 @@ namespace VRW.Model.ControlStream
                 float[] f = new float[10];
                 for (int i = 0; i < 10; i++)
                 {
-                    f[i] = package.Item[2 + i].Value * Program.settings.Decoding.Calibration[i];
+                    f[i] = (float)(package.Item[2 + i].Value * Program.settings.Decoding.Calibration[i]);
                 }
                 pPoints.Add(dateTime, f);
                 if (pPoints.Length > numberOfPoints)

@@ -20,8 +20,8 @@ namespace VRW.Model
             public int NumberOfChannelsADC { get; set; } = 10;
             public int[] PSP_Items { get; set; }
             public PackagePSP1NStructure PSPStructurePackage { get => new PackagePSP1NStructure(StartBit, PSP_Items); }
-            readonly float[] calibrationDefault = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-            public float[] Calibration { get; set; }
+            readonly double[] calibrationDefault = { 0.0008059, 0.0008059, 0.0008059, 0.0008059, 0.000805, 0.0008059, 0.0008059, 0.0008059, 0.0008059, 0.0008059 };
+            public double[] Calibration { get; set; }
 
             public DecodingSetting()
             {

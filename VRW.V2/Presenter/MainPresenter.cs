@@ -43,12 +43,19 @@ namespace VRW.Presenter
             view.UpdateChart += UpdateChartMainEvent;
             view.ExitProgramm += ExitProgrammEvent;
             view.ComPortNamesUpdate += ComPortNamesUpdateEvent;
+            view.SynchronizationTime += SynchronizationTimeEvent;
 
             serialPort.DataReceived += DataReceivesEvent;
 
             if (serialPort.IsOpen)
                 DecodStreamPSP = new StreamDecoding(serialPort.BaseStream, new PackagePSP1NStructure(StartBit.ZERO, 32, 10, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12));
 
+        }
+
+        private void SynchronizationTimeEvent(object sender, EventArgs e)
+        {
+            SynchroTime synchroTime = new SynchroTime();
+            synchroTime.SendTime(serialPort);
         }
 
         private void StopDecodingSerialPortEvent(object sender, EventArgs e)

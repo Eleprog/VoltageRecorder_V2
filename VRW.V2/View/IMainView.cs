@@ -19,6 +19,7 @@ namespace VRW.View
         event EventHandler UpdateChart; //Событие обновления графика
         event EventHandler ExitProgramm;
         event EventHandler ComPortNamesUpdate;
+        event EventHandler SynchronizationTime;
 
         SynchronizationContext SyncContext { get; }
         string ComPortName { get; set; }

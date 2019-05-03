@@ -244,11 +244,11 @@ namespace VRW.View
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(468, 1);
+            this.button1.Location = new System.Drawing.Point(364, 1);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(179, 23);
             this.button1.TabIndex = 3;
-            this.button1.Text = "button1";
+            this.button1.Text = "Синхронизация времени";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 

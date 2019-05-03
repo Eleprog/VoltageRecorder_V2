@@ -83,6 +83,7 @@ namespace VRW.View
         public event EventHandler UpdateChart;
         public event EventHandler ExitProgramm;
         public event EventHandler ComPortNamesUpdate;
+        public event EventHandler SynchronizationTime;
 
         public MainForm()
         {
@@ -225,7 +226,7 @@ namespace VRW.View
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Debug.Print(Program.mainPresenter.serialPort.BytesToRead.ToString());
+            SynchronizationTime(sender, e);
         }
 
         private void chart1_Click(object sender, EventArgs e)
