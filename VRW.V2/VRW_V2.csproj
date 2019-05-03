@@ -143,5 +143,8 @@
     <Content Include="favicon.ico" />
     <Content Include="Protocol SP-1-N.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="PNG\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

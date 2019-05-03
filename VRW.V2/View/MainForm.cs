@@ -160,7 +160,7 @@ namespace VRW.View
                 checkedListBox1.Items.Add("Канал " + i, true);
             }
 
-            Text = "Регистратор напряжений  -  Version " + Application.ProductVersion;
+            Text = "Регистратор электрических параметров  -  Version " + Application.ProductVersion;
         }
 
         private void hScrollBar1_Scroll(object sender, ScrollEventArgs e)
