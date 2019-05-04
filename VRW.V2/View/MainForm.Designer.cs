@@ -259,7 +259,7 @@ namespace VRW.View
             this.hScrollBar2.LargeChange = 1000;
             this.hScrollBar2.Location = new System.Drawing.Point(682, 35);
             this.hScrollBar2.Maximum = 3000;
-            this.hScrollBar2.Minimum = 10;
+            this.hScrollBar2.Minimum = 30;
             this.hScrollBar2.Name = "hScrollBar2";
             this.hScrollBar2.Size = new System.Drawing.Size(200, 31);
             this.hScrollBar2.SmallChange = 20;

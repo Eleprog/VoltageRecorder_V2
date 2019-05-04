@@ -53,8 +53,12 @@ namespace VRW.Model
 
         public void Save()
         {
-            using (FileStream fs = File.OpenWrite(Properties.Settings.Default.SettingsFileName))
+            if (File.Exists(Properties.Settings.Default.SettingsFileName))
             {
+                File.Delete(Properties.Settings.Default.SettingsFileName);
+            }            
+            using (FileStream fs = File.OpenWrite(Properties.Settings.Default.SettingsFileName))
+            {                
                 xmlSerializer.Serialize(fs, this);
             }
         }

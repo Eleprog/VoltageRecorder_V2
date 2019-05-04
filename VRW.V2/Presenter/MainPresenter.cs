@@ -91,7 +91,7 @@ namespace VRW.Presenter
         private void UpdateChartMainEvent(object sender, EventArgs e)
         {
             Program.settings.ChartDisplay.VisiblePointsOnChart = view.VisiblePointsOnChart;
-            if (DecodStreamPSP.Stream.CanSeek)
+            if (DecodStreamPSP!=null && DecodStreamPSP.Stream.CanSeek)
             {
                 PPoints MainChart;
                 {
