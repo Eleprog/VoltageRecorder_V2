@@ -90,13 +90,15 @@ namespace VRW.Presenter
 
         private void UpdateChartMainEvent(object sender, EventArgs e)
         {
+            Program.settings.ChartDisplay.VisiblePointsOnChart = view.VisiblePointsOnChart;
             if (DecodStreamPSP.Stream.CanSeek)
             {
                 PPoints MainChart;
                 {
                     MainChart = DecodStreamPSP.Decoding(Program.settings.ChartDisplay.VisiblePointsOnChart, view.ValueScrollChart);
+                    //Debug.Print("Points: " + Program.settings.ChartDisplay.VisiblePointsOnChart + " position: " + view.ValueScrollChart);
                 }
-                view.MaxValueScrollChart = (int)(DecodStreamPSP.Stream.Length);
+                view.MaxValueScrollChart = (int)(DecodStreamPSP.Lenght);
                 view.MainChart = MainChart; 
             }
         }

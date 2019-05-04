@@ -21,6 +21,7 @@ namespace VRW.View
         event EventHandler ComPortNamesUpdate;
         event EventHandler SynchronizationTime;
 
+        int VisiblePointsOnChart { get; set; }
         SynchronizationContext SyncContext { get; }
         string ComPortName { get; set; }
         List<string> ComPortNames { set; }

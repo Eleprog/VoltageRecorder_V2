@@ -33,6 +33,7 @@ namespace VRW.Model.ControlStream
         }
 
         public Stream Stream { get; }
+        public int Lenght { get => (int)(Stream.Length ); }
 
         public StreamDecoding(Stream stream, PackagePSP1NStructure structure)
         {
@@ -71,9 +72,10 @@ namespace VRW.Model.ControlStream
                 }
                 countErrors += (resultDecode.ErrorsEncoding);
                 //Debug.Print(countErrors.ToString());
-                DateTime dateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
+                DateTime dateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0,DateTimeKind.Utc);
                 dateTime = dateTime.AddSeconds(package.Item[0].Value);
                 dateTime = dateTime.AddMilliseconds(package.Item[1].Value);
+                //Debug.Print(package.Item[1].Value.ToString());
 
                 float[] f = new float[10];
                 for (int i = 0; i < 10; i++)
@@ -81,15 +83,16 @@ namespace VRW.Model.ControlStream
                     f[i] = (float)(package.Item[2 + i].Value * Program.settings.Decoding.Calibration[i]);
                 }
                 pPoints.Add(dateTime, f);
+
                 if (pPoints.Length > numberOfPoints)
                 {
                     pPoints.RemoveFirst();
-                    //break;
-                }
-                if (pPoints.Length == numberOfPoints)
-                {
                     break;
                 }
+                //if (pPoints.Length == numberOfPoints)
+                //{
+                //    break;
+                //}
                 if (!Stream.CanSeek) break;
                 package.Decode(Stream);
             }

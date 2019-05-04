@@ -48,6 +48,7 @@ namespace VRW.View
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
+            this.hScrollBar2 = new System.Windows.Forms.HScrollBar();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -79,7 +80,7 @@ namespace VRW.View
             // button3
             // 
             this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Location = new System.Drawing.Point(567, 3);
+            this.button3.Location = new System.Drawing.Point(685, 3);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(194, 29);
             this.button3.TabIndex = 3;
@@ -89,13 +90,12 @@ namespace VRW.View
             // 
             // chart1
             // 
-            chartArea1.AxisX.Interval = 100D;
-            chartArea1.AxisX.IntervalOffsetType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Milliseconds;
-            chartArea1.AxisX.IntervalType = System.Windows.Forms.DataVisualization.Charting.DateTimeIntervalType.Milliseconds;
+            chartArea1.AxisX.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
             chartArea1.AxisX.IsLabelAutoFit = false;
             chartArea1.AxisX.LabelStyle.Angle = -90;
             chartArea1.AxisX.LabelStyle.IntervalOffset = 0D;
             chartArea1.AxisX.MajorGrid.Interval = 0D;
+            chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.Gainsboro;
             chartArea1.AxisX.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dash;
             chartArea1.AxisY.IntervalAutoMode = System.Windows.Forms.DataVisualization.Charting.IntervalAutoMode.VariableCount;
             chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.WhiteSmoke;
@@ -156,7 +156,7 @@ namespace VRW.View
             series2.YValuesPerPoint = 4;
             this.chart1.Series.Add(series1);
             this.chart1.Series.Add(series2);
-            this.chart1.Size = new System.Drawing.Size(558, 469);
+            this.chart1.Size = new System.Drawing.Size(676, 531);
             this.chart1.TabIndex = 6;
             this.chart1.Text = "chart1";
             this.chart1.Click += new System.EventHandler(this.chart1_Click);
@@ -170,8 +170,8 @@ namespace VRW.View
             this.hScrollBar1.Margin = new System.Windows.Forms.Padding(50, 0, 50, 0);
             this.hScrollBar1.Maximum = 6000;
             this.hScrollBar1.Name = "hScrollBar1";
-            this.hScrollBar1.Size = new System.Drawing.Size(464, 31);
-            this.hScrollBar1.SmallChange = 100;
+            this.hScrollBar1.Size = new System.Drawing.Size(582, 31);
+            this.hScrollBar1.SmallChange = 48;
             this.hScrollBar1.TabIndex = 8;
             this.hScrollBar1.Scroll += new System.Windows.Forms.ScrollEventHandler(this.hScrollBar1_Scroll);
             // 
@@ -185,6 +185,7 @@ namespace VRW.View
             this.tableLayoutPanel1.Controls.Add(this.button3, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.checkedListBox1, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.hScrollBar2, 1, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -192,7 +193,7 @@ namespace VRW.View
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(764, 541);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(882, 603);
             this.tableLayoutPanel1.TabIndex = 9;
             // 
             // panel2
@@ -201,7 +202,7 @@ namespace VRW.View
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 69);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(558, 469);
+            this.panel2.Size = new System.Drawing.Size(676, 531);
             this.panel2.TabIndex = 10;
             // 
             // panel3
@@ -211,7 +212,7 @@ namespace VRW.View
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(558, 469);
+            this.panel3.Size = new System.Drawing.Size(676, 531);
             this.panel3.TabIndex = 0;
             // 
             // checkedListBox1
@@ -221,7 +222,7 @@ namespace VRW.View
             this.checkedListBox1.CheckOnClick = true;
             this.checkedListBox1.Dock = System.Windows.Forms.DockStyle.Top;
             this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(569, 71);
+            this.checkedListBox1.Location = new System.Drawing.Point(687, 71);
             this.checkedListBox1.Margin = new System.Windows.Forms.Padding(5);
             this.checkedListBox1.Name = "checkedListBox1";
             this.checkedListBox1.Size = new System.Drawing.Size(190, 240);
@@ -239,7 +240,7 @@ namespace VRW.View
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(558, 27);
+            this.panel1.Size = new System.Drawing.Size(676, 27);
             this.panel1.TabIndex = 13;
             // 
             // button1
@@ -252,12 +253,26 @@ namespace VRW.View
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // hScrollBar2
+            // 
+            this.hScrollBar2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.hScrollBar2.LargeChange = 1000;
+            this.hScrollBar2.Location = new System.Drawing.Point(682, 35);
+            this.hScrollBar2.Maximum = 3000;
+            this.hScrollBar2.Minimum = 10;
+            this.hScrollBar2.Name = "hScrollBar2";
+            this.hScrollBar2.Size = new System.Drawing.Size(200, 31);
+            this.hScrollBar2.SmallChange = 20;
+            this.hScrollBar2.TabIndex = 14;
+            this.hScrollBar2.Value = 100;
+            this.hScrollBar2.Scroll += new System.Windows.Forms.ScrollEventHandler(this.hScrollBar2_Scroll);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(764, 541);
+            this.ClientSize = new System.Drawing.Size(882, 603);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(780, 580);
@@ -290,6 +305,7 @@ namespace VRW.View
         private System.Windows.Forms.CheckedListBox checkedListBox1;
         private Panel panel1;
         private Button button1;
+        private HScrollBar hScrollBar2;
     }
 }
 

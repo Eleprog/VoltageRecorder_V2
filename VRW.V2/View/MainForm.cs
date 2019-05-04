@@ -76,6 +76,7 @@ namespace VRW.View
         //}
 
         PPoints IMainView.PreviewChart { set => throw new NotImplementedException(); }
+        public int VisiblePointsOnChart { get =>  hScrollBar2.Value; set => hScrollBar2.Value = value; }
 
         public event EventHandler StopDecodingSerialPort;
         public event EventHandler ComPortConnection;
@@ -160,7 +161,7 @@ namespace VRW.View
                 checkedListBox1.Items.Add("Канал " + i, true);
             }
 
-            Text = "Регистратор электрических параметров  -  Version " + Application.ProductVersion;
+            Text = "Монитор параметров ЖАТ  -  Version " + Application.ProductVersion;
         }
 
         private void hScrollBar1_Scroll(object sender, ScrollEventArgs e)
@@ -235,6 +236,12 @@ namespace VRW.View
         private void chart1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void hScrollBar2_Scroll(object sender, ScrollEventArgs e)
+        {
+            //Program.settings.ChartDisplay.VisiblePointsOnChart = hScrollBar2.Value;
+            UpdateChart(sender, e);
         }
     }
 }
