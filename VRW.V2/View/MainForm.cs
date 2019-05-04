@@ -16,6 +16,7 @@ using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 //TODO: delete VRW.Model
 using VRW.Model;
+using VRW.Model.ChartingControl;
 using VRW.Model.ControlStream;
 using VRW.View;
 
@@ -41,7 +42,7 @@ namespace VRW.View
             {
                 comboBox1.Items.AddRange(value.ToArray());
             }
-          
+
         }
         //public int FileLoadingProgress { set => progressBar1.Value = value; }
         public SynchronizationContext SyncContext { get; }
@@ -51,7 +52,7 @@ namespace VRW.View
         {
             set
             {
-                if (value!=null)
+                if (value != null)
                 {
                     for (int i = 0; i < value.Y.Length; i++)
                     {
@@ -76,7 +77,24 @@ namespace VRW.View
         //}
 
         PPoints IMainView.PreviewChart { set => throw new NotImplementedException(); }
-        public int VisiblePointsOnChart { get =>  hScrollBar2.Value; set => hScrollBar2.Value = value; }
+        public int VisiblePointsOnChart { get => hScrollBar2.Value; set => hScrollBar2.Value = value; }
+        public Zoom ZoomChart
+        {
+            get
+            {
+                var zoom = new Zoom();
+                zoom.Value = hScrollBar2.Value;
+                zoom.Min = hScrollBar2.Minimum;
+                zoom.Max = hScrollBar2.Maximum;
+                return zoom;
+            }
+            set
+            {
+                hScrollBar2.Minimum = value.Min;
+                hScrollBar2.Maximum = value.Max;
+                hScrollBar2.Value = 100;
+            }
+        }
 
         public event EventHandler StopDecodingSerialPort;
         public event EventHandler ComPortConnection;
@@ -100,7 +118,7 @@ namespace VRW.View
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            ExitProgramm(this, e);         
+            ExitProgramm(this, e);
             System.Environment.Exit(0);
         }
 
@@ -125,6 +143,7 @@ namespace VRW.View
             {
                 checkedListBox1.Items.Add("Канал " + i, true);
             }
+            checkedListBox1_SelectedIndexChanged(sender, e);
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -139,7 +158,7 @@ namespace VRW.View
 
             for (int i = 0; i < chart1.Series.Count / 2; i++)
             {
-                chart1.Series[i].ChartArea = chart1.ChartAreas[0].Name; 
+                chart1.Series[i].ChartArea = chart1.ChartAreas[0].Name;
                 chart1.Series[i].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
                 chart1.Series[i].XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
             }
@@ -220,12 +239,12 @@ namespace VRW.View
         private void comboBox1_Click(object sender, EventArgs e)
         {
             comboBox1.Items.Clear();
-            ComPortNamesUpdate(sender,e);
+            ComPortNamesUpdate(sender, e);
         }
 
         private void MainForm_Paint(object sender, PaintEventArgs e)
         {
-            
+
         }
 
         private void button1_Click(object sender, EventArgs e)

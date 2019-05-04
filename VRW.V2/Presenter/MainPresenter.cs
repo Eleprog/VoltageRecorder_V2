@@ -90,7 +90,9 @@ namespace VRW.Presenter
 
         private void UpdateChartMainEvent(object sender, EventArgs e)
         {
-            Program.settings.ChartDisplay.VisiblePointsOnChart = view.VisiblePointsOnChart;
+            Program.settings.ChartDisplay.VisiblePointsOnChart = view.ZoomChart.Value;
+            Program.settings.ChartDisplay.MaxZoom = view.ZoomChart.Max;
+            Program.settings.ChartDisplay.MinZoom= view.ZoomChart.Min;
             if (DecodStreamPSP!=null && DecodStreamPSP.Stream.CanSeek)
             {
                 PPoints MainChart;

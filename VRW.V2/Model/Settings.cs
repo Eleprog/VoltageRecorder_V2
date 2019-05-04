@@ -11,7 +11,7 @@ using PSP1N;
 namespace VRW.Model
 {
     public class Settings
-    { 
+    {
 
         public class DecodingSetting
         {
@@ -41,8 +41,23 @@ namespace VRW.Model
 
         public class ChartDisplaySetting
         {
+            const int FIXED_MAX_ZOOM = 3000;
+            const int FIXED_MIN_ZOOM = 50;
             public int VisiblePointsOnChart { get; set; } = 300;
-            public int MouseScrollSpeed { get; set; } = 101;
+            public int MouseScrollSpeed { get; set; } = 100;
+
+            int minZoom = FIXED_MIN_ZOOM;
+            public int MinZoom
+            {
+                get => minZoom;
+                set => minZoom = value < FIXED_MIN_ZOOM ? FIXED_MIN_ZOOM : value;
+            }
+            int maxZoom = FIXED_MAX_ZOOM;
+            public int MaxZoom
+            {
+                get => maxZoom;
+                set => maxZoom = value > FIXED_MAX_ZOOM ? FIXED_MAX_ZOOM : value;
+            }
         }
 
         public DecodingSetting Decoding { get; set; } = new DecodingSetting();
@@ -56,9 +71,9 @@ namespace VRW.Model
             if (File.Exists(Properties.Settings.Default.SettingsFileName))
             {
                 File.Delete(Properties.Settings.Default.SettingsFileName);
-            }            
+            }
             using (FileStream fs = File.OpenWrite(Properties.Settings.Default.SettingsFileName))
-            {                
+            {
                 xmlSerializer.Serialize(fs, this);
             }
         }

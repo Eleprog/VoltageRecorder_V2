@@ -7,6 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using VRW.Model;
 using VRW.Model.ControlStream;
+using VRW.Model.ChartingControl;
 
 namespace VRW.View
 {
@@ -21,13 +22,14 @@ namespace VRW.View
         event EventHandler ComPortNamesUpdate;
         event EventHandler SynchronizationTime;
 
-        int VisiblePointsOnChart { get; set; }
+        //int VisiblePointsOnChart { get; set; }
         SynchronizationContext SyncContext { get; }
         string ComPortName { get; set; }
-        List<string> ComPortNames { set; }
+        List<string> ComPortNames { set;  }
         int MaxValueScrollChart { set; }
         int ValueScrollChart { get; set; }
         PPoints MainChart { set; }
         PPoints PreviewChart { set; }
+        Zoom ZoomChart { set; get; }
     }
 }
